@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Color Palette */
+:root {
+  --color-main: #292929;
+  --color-icon: #B0B0B0;
+  --color-highlight: #287AFF;
+  --color-bg: #F8F8F8;
+}
+
+body {
+  background-color: var(--color-bg);
+  font-family: var(--font-instrument), serif;
+  color: var(--color-main);
+}
+
+.flex-center {
+  @apply flex items-center justify-center;
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: 400;
+  font-family: var(--font-instrument), serif;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 400;
+  font-family: var(--font-instrument), serif;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.75;
+  font-family: var(--font-instrument), serif;
+}
+
+* {
+  font-family: var(--font-instrument), serif;
+  color: var(--color-main);
+}
+
+.Serif {
+  font-family: var(--font-instrument), serif;
+}
+
+.text-icon {
+  color: var(--color-icon);
+}
+
+.text-highlight {
+  color: var(--color-highlight);
+}
+
+.bg-highlight {
+  background-color: var(--color-highlight);
+}
+
+/* Hide scrollbar for carousel */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari and Opera */
+}
