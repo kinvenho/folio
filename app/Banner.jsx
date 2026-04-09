@@ -3,13 +3,11 @@ import React from "react";
 import { images } from "@/utils";
 import Ellipse from "@/components/Ellipse";
 import Link from "next/link";
-import SpotifyNowPlaying from "@/components/SpotifyNowPlaying";
 
 function Banner() {
   return (
-    <main className="h-auto mt-10 border-y-[2px] border-black py-10 w-full  grid sm:grid-cols-2 sm:gap-0 gap-6 justify-between ">
-      <SpotifyNowPlaying />
-      <section className="w-full sm:h-full  sm:pl-[15px] sm:border-l-[0.2px] border-black ">
+    <main className="h-auto mt-10 border-y-[2px] border-black py-10 w-full flex justify-center ">
+      <section className="w-full max-w-4xl ">
         <Link href={"https://en.wikipedia.org/wiki/Billions_(TV_series)"}>
           <Image
             src={images.banner}

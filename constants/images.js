@@ -13,7 +13,6 @@ const images = {
   orion: "/images/orion.png",
   pewton: "/images/pewton.png",
   banner: "/images/banner.png",
-  spotify: "/images/spotify.png",
   mark: "/images/mark.png",
   aboutHero: "/images/about-hero.png",
   stopwatch: "/images/Stop-watch.svg",
