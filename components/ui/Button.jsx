@@ -11,11 +11,11 @@ export const LinkButton = ({ href, icon: Icon, children, className = "" }) => {
                 <Icon
                     size={20}
                     stroke="#B0B0B0"
-                    className="group-hover:stroke-[#287AFF] transition-colors"
+                    className="group-hover:stroke-[#287AFF] transition-colors shrink-0"
                 />
             )}
             <span
-                className="text-[24px] text-[#292929] group-hover:text-[#287AFF] transition-colors"
+                className="text-[18px] md:text-[24px] text-[#292929] group-hover:text-[#287AFF] transition-colors whitespace-nowrap"
             >
                 {children}
             </span>

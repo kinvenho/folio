@@ -1,16 +1,19 @@
+"use client";
+
 import Image from "next/image";
 import { MailIcon, PhoneIcon } from "@/icon/mail.icon";
 import { images } from "@/constants";
 import { Heading, Text } from "@/components/ui/Typography";
 import { Section, Container, Stack } from "@/components/ui/Layout";
 import { LinkButton } from "@/components/ui/Button";
+import { GlyphWord } from "@/components/ui/GlyphWord";
 
 export default function Hero() {
     return (
         <Section>
             <Container width="970px" className="mx-auto">
                 {/* Profile Image */}
-                <div className="w-[140px] h-[140px] mb-16">
+                <div className="w-[140px] h-[140px] mb-8 md:mb-16">
                     <Image
                         src={images.oyefeso}
                         alt="Oyefeso"
@@ -22,43 +25,50 @@ export default function Hero() {
                 </div>
 
                 {/* Title */}
-                <div className="mb-16">
+                <div className="mb-8 md:mb-16">
                     <Heading level="1" className="mb-1">
                         Everything
                     </Heading>
                     <Heading level="1">
                         Oyefeso{' '}
-                        <span className="text-[#287AFF] italic">(Zero)</span>
-                        {' · '}
-                        <span className="font-normal text-[32px] inline-block align-baseline">Product Engineer</span>
+                        <span className="text-[#287AFF] italic" style={{ display: "inline" }}>
+                            <GlyphWord style={{ color: "#287AFF", textDecorationColor: "transparent", display: "inline", width: "auto" }}>(Zero)</GlyphWord>
+                        </span>
+                        <span className="hidden md:inline mx-4">·</span>
+                        <span className="hidden md:inline font-normal text-[32px]" style={{ verticalAlign: "15%" }}>Product Engineer</span>
+                    </Heading>
+                    <Heading level="1" className="md:hidden font-normal !text-[28px]">
+                        Product Engineer
                     </Heading>
                 </div>
 
                 {/* Bio Paragraphs */}
-                <Stack gap="32px" className="mb-16 max-w-[970px]">
+                <Stack gap="24px" className="mb-8 md:mb-16 max-w-[970px]">
                     <Text size="body">
                         I'm Zero (ゼロ), embodying the concept that from emptiness comes infinite creativity.
-                        As a product designer, I create scalable interfaces that address everyday challenges,
-                        inspired by the imaginative worlds of Anime, the narratives of Movies, and the
+                        As a product engineer, I design and build scalable products that address real-world challenges,
+                        inspired by the imaginative worlds of{' '}
+                        <GlyphWord>Anime</GlyphWord>, the narratives of{' '}
+                        <GlyphWord>Movies</GlyphWord>, and the
                         expressiveness of Art.
                     </Text>
 
                     <Text size="body">
                         Through a user-centered lens, I merge technical precision with artistic flair to
-                        design interfaces that are intuitive, efficient, and visually striking.
+                        create interfaces that are intuitive, efficient, and visually striking.
                     </Text>
                 </Stack>
 
                 {/* Contact Links */}
-                <Stack direction="row" gap="48px">
+                <div className="flex flex-row items-center gap-6 md:gap-12">
                     <LinkButton href="mailto:your@email.com" icon={MailIcon}>
-                        Email Me
+                        <GlyphWord style={{ color: "inherit", textDecorationColor: "transparent" }}>Email Me</GlyphWord>
                     </LinkButton>
 
                     <LinkButton href="#schedule" icon={PhoneIcon}>
-                        Schedule Call
+                        <GlyphWord style={{ color: "inherit", textDecorationColor: "transparent" }}>Schedule Call</GlyphWord>
                     </LinkButton>
-                </Stack>
+                </div>
             </Container>
         </Section>
     );

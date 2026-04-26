@@ -2,8 +2,8 @@ import React from "react";
 
 export const Heading = ({ children, level = "1", className = "" }) => {
     const styles = {
-        "1": "text-[48px] leading-tight font-normal",
-        "2": "text-[32px] leading-tight font-normal",
+        "1": "text-[32px] md:text-[48px] leading-tight font-normal",
+        "2": "text-[24px] md:text-[32px] leading-tight font-normal",
     };
 
     const Tag = `h${level}`;
@@ -17,8 +17,8 @@ export const Heading = ({ children, level = "1", className = "" }) => {
 
 export const Text = ({ children, size = "body", className = "", color = "#292929" }) => {
     const styles = {
-        body: "text-[22px] leading-[1.8]",
-        small: "text-[16px] leading-relaxed",
+        body: "text-[16px] md:text-[22px] leading-[1.8]",
+        small: "text-[14px] md:text-[16px] leading-relaxed",
     };
 
     return (

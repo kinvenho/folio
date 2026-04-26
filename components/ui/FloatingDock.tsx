@@ -6,15 +6,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
-import {
-    FaWhatsapp,
-    FaDribbble,
-    FaBehance,
-    FaLinkedin,
-    FaXTwitter
-} from "react-icons/fa6";
+// import { FaBehance } from "react-icons/fa6";
 import { LuLayoutGrid } from "react-icons/lu";
-import { links } from "@/constants/links";
+// import { links } from "@/constants/links";
 
 // Utility for merging classes
 function cn(...inputs: ClassValue[]) {
@@ -74,48 +68,6 @@ export const FloatingDock = ({
             fullSize: true
         },
         {
-            title: "Showreel",
-            icon: (
-                <Image
-                    src="/images/nav-showreel.svg"
-                    width={20}
-                    height={20}
-                    alt="Showreel"
-                    className="h-full w-full object-cover"
-                />
-            ),
-            href: "/showreel",
-            fullSize: true
-        },
-        {
-            title: "Seven",
-            icon: (
-                <Image
-                    src="/images/nav-seven.svg"
-                    width={20}
-                    height={20}
-                    alt="Seven"
-                    className="h-full w-full object-cover"
-                />
-            ),
-            href: "/seven",
-            fullSize: true
-        },
-        {
-            title: "Chatroom",
-            icon: (
-                <Image
-                    src="/images/nav-chatroom.svg"
-                    width={20}
-                    height={20}
-                    alt="Chatroom"
-                    className="h-full w-full object-cover"
-                />
-            ),
-            href: "/chatroom",
-            fullSize: true
-        },
-        {
             title: "F1",
             icon: (
                 <Image
@@ -130,31 +82,30 @@ export const FloatingDock = ({
             fullSize: true
         },
 
-        // Map social links (excluding all - WhatsApp, X/Twitter, Dribbble, Behance, LinkedIn)
-        ...links
-            .filter((link: any) => {
-                const name = link.name.toLowerCase();
-                return !name.includes("whatsapp") &&
-                    name !== "x" &&
-                    !name.includes("twitter") &&
-                    !name.includes("dribble") &&
-                    !name.includes("behance") &&
-                    !name.includes("linkedin");
-            })
-            .map((link: any) => {
-                return {
-                    title: link.name,
-                    icon: <FaBehance className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
-                    href: link.link,
-                    target: "_blank"
-                };
-            })
+        // {
+        //     title: "Showreel",
+        //     icon: <Image src="/images/nav-showreel.svg" width={20} height={20} alt="Showreel" className="h-full w-full object-cover" />,
+        //     href: "/showreel",
+        //     fullSize: true
+        // },
+        // {
+        //     title: "Seven",
+        //     icon: <Image src="/images/nav-seven.svg" width={20} height={20} alt="Seven" className="h-full w-full object-cover" />,
+        //     href: "/seven",
+        //     fullSize: true
+        // },
+        // {
+        //     title: "Chatroom",
+        //     icon: <Image src="/images/nav-chatroom.svg" width={20} height={20} alt="Chatroom" className="h-full w-full object-cover" />,
+        //     href: "/chatroom",
+        //     fullSize: true
+        // },
+        // ...links.filter(...).map(...)
     ];
 
     return (
         <>
             <FloatingDockDesktop items={navItems} className={desktopClassName} />
-            <FloatingDockMobile items={navItems} className={mobileClassName} />
         </>
     );
 };
@@ -197,7 +148,7 @@ const FloatingDockMobile = ({
                                     href={item.href}
                                     target={item.target}
                                     key={item.title}
-                                    className="h-10 w-10 rounded-xl bg-gray-50 dark:bg-neutral-900 flex items-center justify-center border border-gray-200 dark:border-neutral-800 shadow-sm"
+                                    className="h-10 w-10 rounded-xl bg-white/20 dark:bg-black/20 backdrop-blur-xl border border-white/30 dark:border-white/10 shadow-lg flex items-center justify-center"
                                 >
                                     <div className="h-4 w-4">{item.icon}</div>
                                 </Link>
@@ -208,9 +159,9 @@ const FloatingDockMobile = ({
             </AnimatePresence>
             <button
                 onClick={() => setOpen(!open)}
-                className="h-10 w-10 rounded-full bg-gray-50 dark:bg-neutral-800 flex items-center justify-center border border-gray-200 dark:border-neutral-800 shadow-sm"
+                className="h-10 w-10 rounded-full bg-white/20 dark:bg-black/20 backdrop-blur-xl border border-white/30 dark:border-white/10 shadow-lg flex items-center justify-center"
             >
-                <LuLayoutGrid className="h-5 w-5 text-neutral-500 dark:text-neutral-400" />
+                <LuLayoutGrid className="h-5 w-5 text-neutral-700 dark:text-neutral-300" />
             </button>
         </div>
     );
@@ -229,7 +180,9 @@ const FloatingDockDesktop = ({
             onMouseMove={(e) => mouseX.set(e.pageX)}
             onMouseLeave={() => mouseX.set(Infinity)}
             className={cn(
-                "mx-auto hidden md:flex h-16 gap-4 items-end rounded-2xl bg-white/40 dark:bg-neutral-900/40 border border-white/20 dark:border-neutral-800/20 px-4 pb-3 backdrop-blur-xl shadow-lg",
+                "mx-auto flex h-16 gap-4 items-end rounded-2xl bg-white/40 dark:bg-neutral-900/40 px-4 pb-3 backdrop-blur-xl",
+                "before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-b before:from-white/30 before:to-transparent before:pointer-events-none",
+                "relative",
                 className
             )}
         >
@@ -282,10 +235,10 @@ function IconContainer({
         <Link href={href} target={target}>
             <motion.div
                 ref={ref}
-                style={{ width, height }}
+                style={{ width, height, borderRadius: "16px" }}
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
-                className="aspect-square rounded-xl bg-gray-200/80 dark:bg-neutral-800/80 flex items-center justify-center relative"
+                className="aspect-square flex items-center justify-center relative"
             >
                 <AnimatePresence>
                     {hovered && (
@@ -293,7 +246,7 @@ function IconContainer({
                             initial={{ opacity: 0, y: 10, x: "-50%" }}
                             animate={{ opacity: 1, y: 0, x: "-50%" }}
                             exit={{ opacity: 0, y: 2, x: "-50%" }}
-                            className="px-2 py-0.5 whitespace-pre rounded-md bg-gray-100 border dark:bg-neutral-800 dark:border-neutral-900 dark:text-white border-gray-200 text-neutral-700 absolute left-1/2 -translate-x-1/2 -top-8 w-fit text-xs"
+                            className="px-2 py-0.5 whitespace-pre rounded-md text-white absolute left-1/2 -translate-x-1/2 -top-8 w-fit text-xs shadow-lg" style={{ backgroundColor: "#888888" }}
                         >
                             {title}
                         </motion.div>

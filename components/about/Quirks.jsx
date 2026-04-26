@@ -5,7 +5,7 @@ import { Section, Container, Stack } from "@/components/ui/Layout";
 
 export default function Quirks() {
     return (
-        <Section>
+        <Section className="pb-[120px]">
             <Container width="850px">
                 {/* Centered Heading */}
                 <div className="text-center mb-16">

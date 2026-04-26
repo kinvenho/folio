@@ -3,7 +3,7 @@ import React from "react";
 export const Section = ({ children, className = "" }) => {
     return (
         <section
-            className={`w-full flex items-center min-h-screen px-[120px] py-[80px] ${className}`}
+            className={`w-full flex items-center px-6 md:px-16 lg:px-[120px] py-[40px] md:py-[80px] ${className}`}
         >
             {children}
         </section>
@@ -12,7 +12,7 @@ export const Section = ({ children, className = "" }) => {
 
 export const Container = ({ children, width = "850px", className = "" }) => {
     return (
-        <div className={`w-full max-w-[${width}] ${className}`}>
+        <div className={`w-full mx-auto ${className}`} style={{ maxWidth: width }}>
             {children}
         </div>
     );
