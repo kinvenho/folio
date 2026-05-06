@@ -21,6 +21,7 @@ export default function Hero() {
                         height={140}
                         className="w-full h-full object-cover"
                         style={{ borderRadius: '24px' }}
+                        priority
                     />
                 </div>
 
@@ -48,8 +49,8 @@ export default function Hero() {
                         I'm Zero (ゼロ), embodying the concept that from emptiness comes infinite creativity.
                         As a product engineer, I design and build scalable products that address real-world challenges,
                         inspired by the imaginative worlds of{' '}
-                        <GlyphWord>Anime</GlyphWord>, the narratives of{' '}
-                        <GlyphWord>Movies</GlyphWord>, and the
+                        <GlyphWord href="https://myanimelist.net" target="_blank">Anime</GlyphWord>, the narratives of{' '}
+                        <GlyphWord href="https://letterboxd.com/iamoyefeso" target="_blank">Movies</GlyphWord>, and the
                         expressiveness of Art.
                     </Text>
 
@@ -61,7 +62,7 @@ export default function Hero() {
 
                 {/* Contact Links */}
                 <div className="flex flex-row items-center gap-6 md:gap-12">
-                    <LinkButton href="mailto:your@email.com" icon={MailIcon}>
+                    <LinkButton href="mailto:oyefesoafolabiteniola@gmail.com" icon={MailIcon}>
                         <GlyphWord style={{ color: "inherit", textDecorationColor: "transparent" }}>Email Me</GlyphWord>
                     </LinkButton>
 

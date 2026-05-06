@@ -1,9 +1,11 @@
 import React from "react";
 
-export const LinkButton = ({ href, icon: Icon, children, className = "" }) => {
+export const LinkButton = ({ href, icon: Icon, children, className = "", target, rel }) => {
     return (
         <a
             href={href}
+            target={target}
+            rel={target === "_blank" ? rel ?? "noopener noreferrer" : rel}
             className={`flex items-center group transition-colors ${className}`}
             style={{ gap: "12px" }}
         >

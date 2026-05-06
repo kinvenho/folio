@@ -179,6 +179,8 @@ const FloatingDockDesktop = ({
         <motion.div
             onMouseMove={(e) => mouseX.set(e.pageX)}
             onMouseLeave={() => mouseX.set(Infinity)}
+            onTouchStart={() => mouseX.set(Infinity)}
+            onTouchEnd={() => mouseX.set(Infinity)}
             className={cn(
                 "mx-auto flex h-16 gap-4 items-end rounded-2xl bg-white/40 dark:bg-neutral-900/40 px-4 pb-3 backdrop-blur-xl",
                 "before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-b before:from-white/30 before:to-transparent before:pointer-events-none",

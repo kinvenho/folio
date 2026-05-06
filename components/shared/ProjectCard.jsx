@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import ReadMore from "@/components/ReadMore";
 import Shop from "@/components/Shop";
-import ImageWrapper from "@/components/ImageWrapper";
+import ImageWrapper from "@/components/ui/ImageWrapper";
 
 const ProjectCard = ({ project, position }) => {
     const { title, image, link, description, features, action, secondaryAction, slug } = project;
@@ -14,7 +14,7 @@ const ProjectCard = ({ project, position }) => {
 
     const CardContent = () => (
         <>
-            <div className="w-full h-[288px]">
+            <div className="w-full h-[288px] relative overflow-hidden">
                 <ImageWrapper link={slug ? `/projects/${slug}` : link} image={image} />
             </div>
             <div className="">

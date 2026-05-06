@@ -1,10 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 
 const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-export function GlyphWord({ children, className = "", style = {} }) {
+export function GlyphWord({ children, className = "", style = {}, href, target }) {
     const [display, setDisplay] = useState(children);
     const intervalRef = useRef(null);
     const spanRef = useRef(null);
@@ -43,15 +44,14 @@ export function GlyphWord({ children, className = "", style = {} }) {
 
     useEffect(() => () => clearInterval(intervalRef.current), []);
 
-    return (
+    const inner = (
         <span
             ref={spanRef}
-            className={`underline underline-offset-4 cursor-pointer inline-block ${className}`}
+            className={`underline underline-offset-4 cursor-pointer ${className}`}
             style={{
                 color: "#454545",
                 textDecorationColor: "#454545",
-                width: lockedWidth ? `${lockedWidth}px` : undefined,
-                textAlign: "left",
+                display: "inline",
                 ...style,
             }}
             onMouseEnter={scramble}
@@ -60,4 +60,14 @@ export function GlyphWord({ children, className = "", style = {} }) {
             {display}
         </span>
     );
+
+    if (href) {
+        return (
+            <Link href={href} target={target} style={{ display: "inline" }}>
+                {inner}
+            </Link>
+        );
+    }
+
+    return inner;
 }

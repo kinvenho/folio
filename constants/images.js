@@ -4,7 +4,7 @@ const images = {
   crown: "/images/crown.png",
   logo: "/images/logo.svg",
   afolabi: "/images/afolabi.png",
-  oyefeso: "/images/oyefeso.png",
+  oyefeso: "/images/Oyefeso.png",
   warp: "/images/warp.png",
   homeetal: "/images/homeetal.png",
   profile: "/images/profile.png",

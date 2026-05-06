@@ -40,7 +40,7 @@ export default function CTA() {
                             <GlyphWord style={{ color: "inherit", textDecorationColor: "transparent" }}>Schedule a call</GlyphWord>
                         </LinkButton>
 
-                        <LinkButton href="https://www.upwork.com" icon={ArrowUpRightIcon}>
+                        <LinkButton href="https://www.upwork.com" icon={ArrowUpRightIcon} target="_blank">
                             <GlyphWord style={{ color: "inherit", textDecorationColor: "transparent" }}>Hire Me on Upwork</GlyphWord>
                         </LinkButton>
                     </Stack>
